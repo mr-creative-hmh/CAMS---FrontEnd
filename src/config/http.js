@@ -4,7 +4,7 @@ import axios from 'axios';
 const token = localStorage.getItem("token");
 
 export const HTTP = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: "http://cams-app.000webhostapp.com/api",
   headers: {
     Authorization: `Bearer ${token}`,
     "Content-Type": "application/json",
