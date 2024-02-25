@@ -11,7 +11,7 @@
                 rounded="lg"
                 align="center"
               >
-                <v-img src="@/assets/logo/logo.png" height="300" />
+                <v-img src="@/assets/Logo/logo.png" height="300" />
                 <h1 class="mt-4">C.A.M.S</h1>
                 <h2 class="text-green-darken-3">Register</h2>
               </v-sheet>
