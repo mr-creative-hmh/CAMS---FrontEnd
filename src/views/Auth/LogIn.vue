@@ -12,7 +12,7 @@
                 align="center"
                 justify="center"
               >
-                <v-img src="@/assets/logo/logo.png" height="250" />
+                <v-img src="@/assets/Logo/logo.png" height="250" />
                 <h1 class="mt-4">C.A.M.S</h1>
                 <h2 class="text-blue-darken-3">Login</h2>
               </v-sheet>
