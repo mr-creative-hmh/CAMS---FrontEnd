@@ -7,7 +7,7 @@
   >
     <!-- Logo and App Title -->
     <template v-slot:prepend>
-      <v-list-item lines="two" prepend-avatar="/src/assets/logo/logo.png">
+      <v-list-item lines="two" prepend-avatar="@/assets/Logo/logo.png">
         <h2 class="mt-1">C . A . M . S</h2>
       </v-list-item>
     </template>
