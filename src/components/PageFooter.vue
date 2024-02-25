@@ -14,7 +14,7 @@
       height="50px"
       class="d-flex align-center justify-center"
     >
-      {{ new Date().getFullYear() }} , made with &nbsp;
+      {{ new Date().getFullYear() }} , made with&nbsp;
       <v-icon color="red">mdi-heart</v-icon> &nbsp;by our Team &copy; , SVU -
       ITE
     </v-card>
