@@ -122,7 +122,7 @@
                         rounded="10"
                         class="mb-4 mt-4"
                       >
-                        <v-img src="src/assets/images/health_clinic.png" />
+                        <v-img src="@/assets/images/health_clinic.png" />
                       </v-avatar>
                       <v-card-title>
                         {{ Clinic.Name }}
