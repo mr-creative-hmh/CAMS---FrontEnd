@@ -62,8 +62,7 @@
                       justify="center"
                     >
                       <v-card>
-                        <v-img src="src/assets/images/administrator.jpg">
-                        </v-img>
+                        <v-img src="@/assets/images/administrator.jpg"> </v-img>
                       </v-card>
                     </v-sheet>
                   </v-col>
