@@ -3,37 +3,45 @@
 * @Maintainer: J.K. Yang
 * @Description:
 -->
+
 <script setup>
+import clinicsImage from "@/assets/images/services/clinics.jpg";
+import doctorsImage from "@/assets/images/services/doctors.jpg";
+import patientsImage from "@/assets/images/services/patients.jpg";
+import doctorSchedulesImage from "@/assets/images/services/doctorschedules.jpg";
+import appointmentsImage from "@/assets/images/services/appointments.jpg";
+import medicalRecordsImage from "@/assets/images/services/medicalrecords.jpg";
+
 const services = [
   {
     name: "Clinics Managment",
     icon: "mdi-hospital-building",
-    logo: "src/assets/images/services/clinics.jpg",
+    logo: clinicsImage,
   },
   {
     name: "Doctors Managment",
     icon: "mdi-doctor",
-    logo: "src/assets/images/services/doctors.jpg",
+    logo: doctorsImage,
   },
   {
     name: "Patients Managment",
     icon: "mdi-account",
-    logo: "src/assets/images/services/patients.jpg",
+    logo: patientsImage,
   },
   {
     name: "Doctors Schedules Managment",
     icon: "mdi-calendar-clock",
-    logo: "src/assets/images/services/doctorschedules.jpg",
+    logo: doctorSchedulesImage,
   },
   {
     name: "Appointments Managment",
     icon: "mdi-calendar",
-    logo: "src/assets/images/services/appointments.jpg",
+    logo: appointmentsImage,
   },
   {
     name: "Medical Records Managment",
     icon: "mdi-file-multiple",
-    logo: "src/assets/images/services/medicalrecords.jpg",
+    logo: medicalRecordsImage,
   },
 ];
 </script>

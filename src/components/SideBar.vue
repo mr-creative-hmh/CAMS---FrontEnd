@@ -69,16 +69,21 @@ const appStore = useAppStore();
 const drawer = toRef(appStore, "drawer");
 
 // Method to get the role photo URL
+import adminImage from "@/assets/images/roles/Admin.png";
+import doctorImage from "@/assets/images/roles/Doctor.png";
+import patientImage from "@/assets/images/roles/Patient.png";
+import clinicManagerImage from "@/assets/images/roles/Clinic_Manager.png";
+
 const getRolePhoto = (role) => {
   switch (role) {
     case "Admin":
-      return "/src/assets/images/roles/Admin.png";
+      return adminImage;
     case "Doctor":
-      return "/src/assets/images/roles/Doctor.png";
+      return doctorImage;
     case "Patient":
-      return "/src/assets/images/roles/Patient.png";
+      return patientImage;
     case "Clinic Manager":
-      return "/src/assets/images/roles/Clinic_Manager.png";
+      return clinicManagerImage;
     default:
       return "https://cdn.vuetifyjs.com/images/john.jpg"; // URL for default photo or placeholder
   }
