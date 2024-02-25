@@ -12,7 +12,7 @@
                 align="center"
                 justify="center"
               >
-                <v-img height="300" src="@/assets/logo/logo.png" />
+                <v-img height="300" src="@/assets/Logo/logo.png" />
                 <v-card-title class="text-center"
                   >About Our
                   <h5>
