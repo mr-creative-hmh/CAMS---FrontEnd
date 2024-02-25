@@ -301,36 +301,10 @@ const fetchTodayAppointments = async (clinicId) => {
     console.error("Error fetching today's appointments:", error);
   }
 };
-// const fetchClinic = async () => {
-//   try {
-//     const response = await HTTP.get(`users/${user.ID}/additional-info`);
-//     clinic.value = response.data.Clinic;
-//     fetchTodayAppointments();
-//   } catch (error) {
-//     console.error(`Error fetching clinic`, error);
-//   }
-// };
 
 function initialize() {
   fetchUserData();
 }
-
-// async function fetchTodayAppointments() {
-//   try {
-//     const response = await HTTP.get(`/clinic/appointments/${1}`);
-//     const today = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
-//     todayAppointments.value = response.data.data.filter((appointment) => {
-//       return (
-//         appointment.AppointmentDate === today &&
-//         appointment.AppointmentStatus !== "Completed" &&
-//         appointment.AppointmentStatus !== "Cancelled"
-//       );
-//     });
-//     loading.value = false;
-//   } catch (error) {
-//     console.error("Error fetching today's appointments:", error);
-//   }
-// }
 
 // Method to mark appointment as completed
 const completeAppointment = async (appointment) => {

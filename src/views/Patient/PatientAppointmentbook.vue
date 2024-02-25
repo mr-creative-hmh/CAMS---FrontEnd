@@ -548,12 +548,6 @@ const fetchDoctors = async () => {
   }
 };
 
-// Fetch appointments based on selected date
-// const fetchAppointments = async () => {
-//   // Call your function to fetch appointments based on selected date
-//   // Update the `appointments` reactive variable
-// };
-
 const selectCategory = (categoryId) => {
   selectedCategory.value = categoryId;
   expandedSection.value = null; // Collapse the current section

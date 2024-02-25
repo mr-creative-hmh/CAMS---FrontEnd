@@ -5,7 +5,7 @@
         <v-card class="pa-4 mb-5">
           <v-list-item
             lines="three"
-            prepend-avatar="/src/assets/images/roles/Patient.png"
+            prepend-avatar="@/assets/images/roles/Patient.png"
           >
             <h2 class="mt-1">
               Welcome Patient:

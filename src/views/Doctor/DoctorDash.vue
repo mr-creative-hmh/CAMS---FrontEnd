@@ -471,13 +471,13 @@ onMounted(async () => {
 const getRolePhoto = () => {
   switch (user.Role) {
     case "Admin":
-      return "/src/assets/images/roles/Admin.png";
+      return "@/assets/images/roles/Admin.png";
     case "Doctor":
-      return "/src/assets/images/roles/Doctor.png";
+      return "@/assets/images/roles/Doctor.png";
     case "Patient":
-      return "/src/assets/images/roles/Patient.png";
+      return "@/assets/images/roles/Patient.png";
     case "Clinic Manager":
-      return "/src/assets/images/roles/Clinic_Manager.png";
+      return "@/assets/images/roles/Clinic_Manager.png";
     default:
       return "https://cdn.vuetifyjs.com/images/john.jpg"; // URL for default photo or placeholder
   }
