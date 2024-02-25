@@ -7,7 +7,7 @@
             <img
               class="mx-auto mt-7"
               width="200"
-              src="@/assets/logo/logo.png"
+              src="@/assets/Logo/logo.png"
               alt="Clinics Appointments Management System Logo"
             />
             <div class="text-h5 font-weight-bold mb-2 mt-2">
