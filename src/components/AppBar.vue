@@ -16,7 +16,7 @@
 
       <v-list-item
         lines="three"
-        prepend-avatar="/src/assets/logo/logo.png"
+        prepend-avatar="@/assets/logo/logo.png"
         @click="navigateTo('/')"
         v-if="!display.smAndDown"
       >
@@ -24,7 +24,7 @@
       </v-list-item>
       <v-list-item
         lines="three"
-        prepend-avatar="/src/assets/logo/logo.png"
+        prepend-avatar="@/assets/logo/logo.png"
         @click="navigateTo('/')"
         v-if="display.smAndDown"
       >
