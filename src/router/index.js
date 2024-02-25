@@ -1,4 +1,6 @@
 // Composables
+import { useAuth } from '@/store/useAuthentication';
+import { useUser } from '@/store/useUser';
 import { authGuard } from '@/config/authGuard.js';
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -299,8 +301,12 @@ export function getAllowedRoutesForRole(role) {
   ]);
 }
 
+
+
 router.beforeEach((to, from, next) => {
-  authGuard(to, from, next);
+  const authStore = useAuth();
+  const userStore = useUser();
+  authGuard(to, from, next, authStore, userStore);
 });
 
 export default router

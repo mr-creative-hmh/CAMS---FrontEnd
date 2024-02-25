@@ -1,18 +1,13 @@
 
 // Import your Pinia stores
-import { useAuth } from '@/store/useAuthentication';
-import { useUser } from '@/store/useUser';
 import { getAllowedRoutesForRole } from '@/router';
 
-export function authGuard(to, from, next) {
-  const authStore = useAuth();
-  const userStore = useUser();
-
+export function authGuard(to, from, next, authStore, userStore) {
   const isAuthenticated = authStore.isAuthenticated;
   const requiresAuth = to.meta.requiresAuth;
 
   if (requiresAuth && !isAuthenticated) {
-    next('/login'); // Redirect to login page if route requires authentication but user is not authenticated
+    next({ path: '/login' }); // Redirect to login page if route requires authentication but user is not authenticated
   } else {
     // Check if the user is authenticated and get their role
     if (isAuthenticated) {
