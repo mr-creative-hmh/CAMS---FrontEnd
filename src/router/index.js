@@ -34,7 +34,7 @@ import ClinicappointmentsManagement from '@/views/ClinicManager/Clinicappointmen
 import ClinicdoctorschedulesManagement from '@/views/ClinicManager/ClinicdoctorschedulesManagement.vue'
 
 // Doctor Views
-import DoctorDashboard from '@/views/doctor/DoctorDash.vue';
+import DoctorDashboard from '@/views/Doctor/DoctorDash.vue';
 import DoctorTodayappointments from '@/views/Doctor/DoctorTodayappointments.vue'
 import DoctorPatients from '@/views/Doctor/DoctorPatients.vue';
 
