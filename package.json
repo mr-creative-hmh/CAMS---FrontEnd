@@ -1,6 +1,6 @@
 {
-  "name": "clinics-front",
-  "version": "0.0.0",
+  "name": "cams-frontend",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",

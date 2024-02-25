@@ -29,7 +29,7 @@
                     rounded="10"
                     class="mb-4 mt-4"
                   >
-                    <v-img :src="getRolePhoto()" />
+                    <v-img :src="getRolePhoto(userData.Role.RoleName)" />
                   </v-avatar>
                   <v-card-title>
                     {{ userData.Name }}
@@ -460,16 +460,16 @@ export default {
     };
 
     // Method to get the role photo URL
-    const getRolePhoto = () => {
-      switch (user.Role) {
+    const getRolePhoto = (role) => {
+      switch (role) {
         case "Admin":
-          return "@/assets/images/roles/Admin.png";
+          return "/src/assets/images/roles/Admin.png";
         case "Doctor":
-          return "@/assets/images/roles/Doctor.png";
+          return "/src/assets/images/roles/Doctor.png";
         case "Patient":
-          return "@/assets/images/roles/Patient.png";
+          return "/src/assets/images/roles/Patient.png";
         case "Clinic Manager":
-          return "@/assets/images/roles/Clinic_Manager.png";
+          return "/src/assets/images/roles/Clinic_Manager.png";
         default:
           return "https://cdn.vuetifyjs.com/images/john.jpg"; // URL for default photo or placeholder
       }

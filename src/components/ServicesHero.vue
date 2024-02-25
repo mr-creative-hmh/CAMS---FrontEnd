@@ -8,32 +8,32 @@ const services = [
   {
     name: "Clinics Managment",
     icon: "mdi-hospital-building",
-    logo: "@/assets/images/services/clinics.jpg",
+    logo: "src/assets/images/services/clinics.jpg",
   },
   {
     name: "Doctors Managment",
     icon: "mdi-doctor",
-    logo: "@/assets/images/services/doctors.jpg",
+    logo: "src/assets/images/services/doctors.jpg",
   },
   {
     name: "Patients Managment",
     icon: "mdi-account",
-    logo: "@/assets/images/services/patients.jpg",
+    logo: "src/assets/images/services/patients.jpg",
   },
   {
     name: "Doctors Schedules Managment",
     icon: "mdi-calendar-clock",
-    logo: "@/assets/images/services/doctorschedules.jpg",
+    logo: "src/assets/images/services/doctorschedules.jpg",
   },
   {
     name: "Appointments Managment",
     icon: "mdi-calendar",
-    logo: "@/assets/images/services/appointments.jpg",
+    logo: "src/assets/images/services/appointments.jpg",
   },
   {
     name: "Medical Records Managment",
     icon: "mdi-file-multiple",
-    logo: "@/assets/images/services/medicalrecords.jpg",
+    logo: "src/assets/images/services/medicalrecords.jpg",
   },
 ];
 </script>
