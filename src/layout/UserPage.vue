@@ -3,14 +3,13 @@
 
   <v-app>
     <v-layout>
-      <SideBar app> </SideBar>
-      <!-- <NavDrawer app>
-
-    </NavDrawer> -->
-
-      <DefaultBar app>
+      <SideBar app>
         <!-- -->
-      </DefaultBar>
+      </SideBar>
+
+      <AppBar app>
+        <!-- -->
+      </AppBar>
 
       <!-- Sizes your content based upon application components -->
       <v-main>
@@ -30,11 +29,8 @@
 </template>
 
 <script setup>
-import DefaultBar from "@/components/AppBar.vue";
+import AppBar from "@/components/AppBar.vue";
 import DefaultFooter from "@/components/PageFooter.vue";
 import SnackBar from "@/components/SnackBar.vue";
 import SideBar from "@/components/SideBar.vue";
 </script>
-// import { computed, unref } from 'vue' // import { useDisplay } from
-'vuetify'; // const display = useDisplay() // const isMobile = computed(() => {
-// return unref(display.mobile) // })

@@ -88,7 +88,7 @@
                         rounded="10"
                         class="mb-4 mt-4"
                       >
-                        <v-img :src="getRolePhoto()" />
+                        <v-img :src="getRolePhoto(userData.Role.RoleName)" />
                       </v-avatar>
                       <v-card-title>
                         {{ userData.Name }}
@@ -374,6 +374,10 @@
 import { HTTP } from "@/config";
 import { useUser } from "@/store/useUser";
 import { ref, watch, onMounted, computed } from "vue";
+import adminImage from "@/assets/images/roles/Admin.png";
+import doctorImage from "@/assets/images/roles/Doctor.png";
+import patientImage from "@/assets/images/roles/Patient.png";
+import clinicManagerImage from "@/assets/images/roles/Clinic_Manager.png";
 
 const user = useUser();
 
@@ -468,33 +472,18 @@ onMounted(async () => {
 });
 
 // Method to get the role photo URL
-const getRolePhoto = () => {
-  switch (user.Role) {
+const getRolePhoto = (role) => {
+  switch (role) {
     case "Admin":
-      return "@/assets/images/roles/Admin.png";
+      return adminImage;
     case "Doctor":
-      return "@/assets/images/roles/Doctor.png";
+      return doctorImage;
     case "Patient":
-      return "@/assets/images/roles/Patient.png";
+      return patientImage;
     case "Clinic Manager":
-      return "@/assets/images/roles/Clinic_Manager.png";
+      return clinicManagerImage;
     default:
       return "https://cdn.vuetifyjs.com/images/john.jpg"; // URL for default photo or placeholder
   }
 };
-
-// const getRoleColor = (role) => {
-//   switch (role) {
-//     case "Admin":
-//       return "red ";
-//     case "Doctor":
-//       return "green";
-//     case "Patient":
-//       return "gray";
-//     case "Clinic Manager":
-//       return "orange";
-//     default:
-//       return "black"; // URL for default photo or placeholder
-//   }
-// };
 </script>

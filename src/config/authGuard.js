@@ -12,11 +12,7 @@ export function authGuard(to, from, next, authStore, userStore) {
     // Check if the user is authenticated and get their role
     if (isAuthenticated) {
       const userRole = userStore.Role;
-      console.log("From Path:", from.path);
       const allowedRoutes = getAllowedRoutesForRole(userRole);
-      console.log('allowedRoutes :', allowedRoutes);
-      console.log("To Path:", to.path);
-      console.log('allowedRoutes To:', allowedRoutes.includes(to.path));
       // Check if the user is trying to access a route that matches their role
       if (allowedRoutes.includes(to.path)) {
         next(); // Proceed to the route if it matches the user's role

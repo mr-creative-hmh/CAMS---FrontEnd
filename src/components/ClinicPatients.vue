@@ -19,7 +19,17 @@
             <v-img src="@/assets/images/clinic_icon.png" height="200" />
             {{ clinic.Name }}
             <v-divider></v-divider>
-            "{{ clinic.Category.Name }}"
+            <v-chip
+              color="light-blue-darken-4"
+              size="large"
+              variant="outlined"
+              prepend-icon="mdi-hospital-building"
+              rounded="xl"
+              class="mt-2"
+              label
+            >
+              {{ clinic.Category.Name }}
+            </v-chip>
           </v-card-title>
           <v-card-text>
             <!-- Display assigned patients for the clinic -->

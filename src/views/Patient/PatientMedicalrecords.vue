@@ -1,12 +1,17 @@
 <template>
   <v-container>
-    <v-toolbar class="mb-6 pl-4" color="light-blue-darken-3" rounded="lg">
-      <v-icon start>mdi-clipboard-pulse</v-icon> My Medical Records
-    </v-toolbar>
+    <v-row>
+      <v-col>
+        <v-toolbar class="pl-4" color="light-blue-darken-4" rounded="lg">
+          <v-icon start>mdi-clipboard-pulse</v-icon> My Medical Records
+        </v-toolbar>
+      </v-col>
+    </v-row>
 
     <!-- Appointment Cards -->
-    <v-row>
-      <template v-if="loading">
+
+    <template v-if="loading">
+      <v-row>
         <v-col cols="12" sm="6" md="4" lg="3">
           <v-skeleton-loader
             elevation="7"
@@ -35,20 +40,23 @@
             type="card"
           ></v-skeleton-loader>
         </v-col>
-      </template>
-    </v-row>
+      </v-row>
+    </template>
+
     <template v-if="!loading">
       <template
         v-if="!PatientMedicalRecords || PatientMedicalRecords.length === 0"
       >
-        <v-alert
-          density="compact"
-          type="info"
-          title="My Medical Records"
-          text="No Medical Records Available for the Patient."
-          rounded="lg"
-          class="ml-3 mr-3"
-        ></v-alert>
+        <v-row>
+          <v-alert
+            density="compact"
+            type="info"
+            title="My Medical Records"
+            text="No Medical Records Available for the Patient."
+            rounded="lg"
+            class="ml-3 mr-3"
+          ></v-alert>
+        </v-row>
       </template>
       <v-data-iterator :items="PatientMedicalRecords" item-value="ID">
         <template v-slot:default="{ items, isExpanded, toggleExpand }">
@@ -57,8 +65,9 @@
               v-for="item in items"
               :key="item.raw.ID"
               cols="12"
-              sm="4"
-              md="3"
+              sm="6"
+              md="4"
+              lg="3"
             >
               <v-card>
                 <v-toolbar color="cyan-darken-1" class="d-flex align-center">

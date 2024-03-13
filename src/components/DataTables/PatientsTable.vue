@@ -55,11 +55,13 @@
                           v-if="createEdit"
                           v-model="editedItem.Password"
                           label="Password"
-                          :append-icon="
+                          :append-inner-icon="
                             PasswordVisible ? 'mdi-eye-off' : 'mdi-eye'
                           "
                           :type="PasswordVisible ? 'text' : 'password'"
-                          @click:append="PasswordVisible = !PasswordVisible"
+                          @click:append-inner="
+                            PasswordVisible = !PasswordVisible
+                          "
                           :error-messages="passwordErrors"
                         ></v-text-field>
                         <v-text-field
@@ -106,7 +108,7 @@
                         ></v-text-field>
                         <v-text-field
                           v-model="editedItem.AdditionalInfo"
-                          label="AdditionalInfo"
+                          label="Additional Info"
                         ></v-text-field>
                       </v-col>
                     </v-row>

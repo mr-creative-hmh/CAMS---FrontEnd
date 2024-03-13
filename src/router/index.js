@@ -103,8 +103,6 @@ const adminRoutes = [
         component: UserProfile,
       },
 
-
-      // Add more admin-specific routes
     ]
   }
 ];
@@ -150,8 +148,6 @@ const clinicManagerRoutes = [
         name: 'ClinicManagerUserProfile',
         component: UserProfile,
       },
-
-      // Add more clinic manager-specific routes
     ]
   }
 ];
@@ -183,7 +179,6 @@ const doctorRoutes = [
         component: UserProfile,
       },
 
-      // Add more doctor-specific routes
     ]
   }
 ];
@@ -219,7 +214,7 @@ const patientRoutes = [
         name: 'PatientUserProfile',
         component: UserProfile,
       },
-      // Add more patient-specific routes
+
     ]
   }
 ];

@@ -2,13 +2,9 @@
   <!-- App.vue -->
 
   <v-app>
-    <!-- <NavDrawer app>
-
-    </NavDrawer> -->
-
-    <DefaultBar app>
+    <AppBar app>
       <!-- -->
-    </DefaultBar>
+    </AppBar>
 
     <!-- Sizes your content based upon application components -->
     <v-main>
@@ -24,18 +20,7 @@
 </template>
 
 <script setup>
-import DefaultBar from "@/components/AppBar.vue";
+import AppBar from "@/components/AppBar.vue";
 import DefaultFooter from "@/components/PageFooter.vue";
-
 import SnackBar from "@/components/SnackBar.vue";
-
-// import NavDrawer from '@/components/NavDrawer.vue';
-// import { computed, unref } from 'vue'
-// import { useDisplay } from 'vuetify';
-
-// const display = useDisplay()
-
-// const isMobile = computed(() => {
-//   return unref(display.mobile)
-// })
 </script>

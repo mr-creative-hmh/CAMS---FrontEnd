@@ -19,7 +19,17 @@
             <v-img src="@/assets/images/clinic_icon.png" height="200" />
             {{ clinic.Name }}
             <v-divider></v-divider>
-            "{{ clinic.Category.Name }}"
+            <v-chip
+              color="light-blue-darken-4"
+              size="large"
+              variant="outlined"
+              prepend-icon="mdi-hospital-building"
+              rounded="xl"
+              class="mt-2"
+              label
+            >
+              {{ clinic.Category.Name }}
+            </v-chip>
           </v-card-title>
           <v-card-text>
             <!-- Display assigned doctors for the clinic -->
@@ -73,12 +83,13 @@
         <v-card-text>
           <v-select
             v-model="selectedDoctor"
-            :items="unassignedDoctors"
+            :items="formattedDoctors"
             label="Select Doctor"
-            item-title="User.Name"
             item-value="ID"
+            item-title="formattedName"
             :loading="assigning"
-          ></v-select>
+          >
+          </v-select>
         </v-card-text>
         <v-card-actions>
           <v-btn
@@ -94,7 +105,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { HTTP } from "@/config"; // Assuming HTTP is exported from '@/config'
 import { useAuth } from "@/store/useAuthentication";
 
@@ -110,6 +121,13 @@ const unassigning = ref(false);
 
 onMounted(async () => {
   await fetchClinics();
+});
+
+const formattedDoctors = computed(() => {
+  return unassignedDoctors.value.map((doctor) => ({
+    ...doctor,
+    formattedName: `${doctor.User.Name} - Specialization: ${doctor.Specialization.Name}`,
+  }));
 });
 
 const fetchClinics = async () => {

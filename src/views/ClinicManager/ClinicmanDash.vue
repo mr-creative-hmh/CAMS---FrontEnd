@@ -74,7 +74,7 @@
                         rounded="10"
                         class="mb-4 mt-4"
                       >
-                        <v-img :src="getRolePhoto()" />
+                        <v-img :src="getRolePhoto(userData.Role.RoleName)" />
                       </v-avatar>
                       <v-card-title>
                         {{ userData.Name }}
@@ -416,6 +416,10 @@ import { useUser } from "@/store/useUser";
 import { computed } from "vue";
 import { onMounted } from "vue";
 import { ref } from "vue";
+import adminImage from "@/assets/images/roles/Admin.png";
+import doctorImage from "@/assets/images/roles/Doctor.png";
+import patientImage from "@/assets/images/roles/Patient.png";
+import clinicManagerImage from "@/assets/images/roles/Clinic_Manager.png";
 
 const user = useUser();
 const auth = useAuth();
@@ -527,16 +531,16 @@ onMounted(async () => {
 });
 
 // Method to get the role photo URL
-const getRolePhoto = () => {
-  switch (user.Role) {
+const getRolePhoto = (role) => {
+  switch (role) {
     case "Admin":
-      return "@/assets/images/roles/Admin.png";
+      return adminImage;
     case "Doctor":
-      return "@/assets/images/roles/Doctor.png";
+      return doctorImage;
     case "Patient":
-      return "@/assets/images/roles/Patient.png";
+      return patientImage;
     case "Clinic Manager":
-      return "@/assets/images/roles/Clinic_Manager.png";
+      return clinicManagerImage;
     default:
       return "https://cdn.vuetifyjs.com/images/john.jpg"; // URL for default photo or placeholder
   }

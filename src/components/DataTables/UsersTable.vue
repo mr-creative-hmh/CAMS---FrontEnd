@@ -64,13 +64,15 @@
                         ></v-text-field>
                         <v-text-field
                           v-if="createEdit"
-                          v-model="editedItem.password"
+                          v-model="editedItem.Password"
                           label="Password"
-                          :append-icon="
+                          :append-inner-icon="
                             PasswordVisible ? 'mdi-eye-off' : 'mdi-eye'
                           "
                           :type="PasswordVisible ? 'text' : 'password'"
-                          @click:append="PasswordVisible = !PasswordVisible"
+                          @click:append-inner="
+                            PasswordVisible = !PasswordVisible
+                          "
                           :error-messages="passwordErrors"
                         ></v-text-field>
                         <v-text-field
