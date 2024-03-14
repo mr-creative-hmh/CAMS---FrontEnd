@@ -60,6 +60,7 @@
                           label="Doctor"
                         ></v-select>
                         <v-select
+                          :error-messages="dayErrors"
                           v-model="editedItem.DayOfWeek"
                           :items="[
                             'Monday',
@@ -73,18 +74,21 @@
                           label="Day Of Week"
                         ></v-select>
                         <v-text-field
+                          :error-messages="starttimeErrors"
                           type="time"
                           v-model="editedItem.StartTime"
                           label="Start Time"
                         >
                         </v-text-field>
                         <v-text-field
+                          :error-messages="endtimeErrors"
                           type="time"
                           v-model="editedItem.EndTime"
                           label="End Time"
                         >
                         </v-text-field>
                         <v-select
+                          :error-messages="durationErrors"
                           v-model="editedItem.AppointmentDuration"
                           :items="[15, 30, 45, 60]"
                           label="Appointment Duration (Minutes)"
@@ -222,25 +226,30 @@ const updateTimeFormat = (timeString) => {
   return `${hours}:${minutes}`;
 };
 const doctorErrors = ref([]);
+const dayErrors = ref([]);
 const starttimeErrors = ref([]);
 const endtimeErrors = ref([]);
 const durationErrors = ref([]);
 
 const handleErrors = (errors) => {
-  if (errors.name) {
-    doctorErrors.value = errors.name;
+  if (errors.doctor_id) {
+    doctorErrors.value = errors.doctor_id;
   }
 
-  if (errors.password) {
-    starttimeErrors.value = errors.password;
+  if (errors.day_of_week) {
+    dayErrors.value = errors.day_of_week;
   }
 
-  if (errors.phone) {
-    endtimeErrors.value = errors.phone;
+  if (errors.start_time) {
+    starttimeErrors.value = errors.start_time;
   }
 
-  if (errors.mobile) {
-    durationErrors.value = errors.mobile;
+  if (errors.end_time) {
+    endtimeErrors.value = errors.end_time;
+  }
+
+  if (errors.appointment_duration) {
+    durationErrors.value = errors.appointment_duration;
   }
 };
 
@@ -307,8 +316,7 @@ function editDoctorSchedule(item) {
       console.error("Error edit doctor:", error);
       auth.$patch({
         showAlert: true,
-        message:
-          "An error occurred while editing the doctor. Please try again later.",
+        message: "An error occurred while editing. Please try again later.",
         isError: true,
       });
     });
@@ -325,21 +333,49 @@ async function createDoctorSchedule(item) {
       end_time: item.EndTime,
       appointment_duration: item.AppointmentDuration,
     });
-    auth.$patch({
-      showAlert: true,
-      message: response.data.Message,
-      isError: false,
-    });
-  } catch (error) {
-    if (error.response && error.response.data && error.response.data.errors) {
-      console.log("errors:", error.response.data.errors);
-      handleErrors(error.response.data.errors);
+
+    // Check if the request was successful
+    if (response.status === 200) {
       auth.$patch({
         showAlert: true,
-        message: error.response.data.message,
-        isError: true,
+        message: response.data.Message,
+        isError: false,
       });
+    }
+  } catch (error) {
+    // Handle different error scenarios
+    if (error.response && error.response.data) {
+      const responseData = error.response.data;
+
+      if (responseData.StatusCode === 409) {
+        // Handle conflict error
+        console.log("Conflict error:", responseData.Message);
+        auth.$patch({
+          showAlert: true,
+          message: responseData.Message,
+          isError: true,
+        });
+      } else if (error.response.data.errors) {
+        // Handle validation errors
+        console.log("Validation errors:", error.response.data.errors);
+        handleErrors(error.response.data.errors);
+        auth.$patch({
+          showAlert: true,
+          message: "Validation errors occurred.",
+          isError: true,
+        });
+      } else {
+        // Handle other errors
+        console.log("Other error:", error.response.data.message);
+        auth.$patch({
+          showAlert: true,
+          message: "An error occurred while Creating. Please try again later.",
+          isError: true,
+        });
+      }
     } else {
+      // Handle generic network errors
+      console.log("Network error:", error.message);
       auth.$patch({
         showAlert: true,
         message: "An error occurred while registering. Please try again later.",
